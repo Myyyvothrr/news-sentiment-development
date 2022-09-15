@@ -24,6 +24,7 @@ def mdraw_clean_text(text):
     # clean slightly different from oliverguhr:
     # no max len
     # no emoji replacements
+    # removes punctuation
 
     text = text.replace("\n", " ")
     text = clean_http_urls.sub('', text)
