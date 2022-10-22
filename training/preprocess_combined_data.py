@@ -37,11 +37,11 @@ def mdraw_clean_text(text):
     return text
 
 
-db_dir = "/home/daniel/data/uni/masterarbeit-sentiment/data/datasets/experiments/de/3sentiment"
+db_dir = "/home/daniel/data/uni/masterarbeit-sentiment/data/datasets/experiments/de/3sentiment-exact"
 db_file = f"{db_dir}/datasets.db"
 
 # remove data samples that are duplicates and not in the same split
-remove_duplicates = True
+remove_duplicates = False
 
 # Get combined dataset
 con = sqlite3.connect(db_file)
@@ -98,7 +98,7 @@ print(dataset_combined["train"][565])
 combined_dataset_name = "mdraw"
 if remove_duplicates:
     combined_dataset_name += "-unseen"
-combined_dataset_path = f"/home/daniel/data/uni/masterarbeit-sentiment/data/datasets/experiments/de/3sentiment/{combined_dataset_name}"
+combined_dataset_path = f"/home/daniel/data/uni/masterarbeit-sentiment/data/datasets/experiments/de/3sentiment-exact/{combined_dataset_name}"
 
 # save preprocessed dataset
 dataset_combined.save_to_disk(combined_dataset_path)
